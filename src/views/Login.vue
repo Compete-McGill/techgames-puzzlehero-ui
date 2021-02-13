@@ -1,9 +1,7 @@
 <template>
   <div class="login">
     <v-container class="my-5">
-      <h1 class="my-5 display-1 font-weight-light">
-        Login
-      </h1>
+      <h1 class="my-5 display-1 font-weight-light">Login</h1>
       <v-row class="my-5 py-5">
         <v-col cols="0" sm="3"></v-col>
 
@@ -81,8 +79,11 @@ export default {
           password: this.user.password
         });
         // save user and token in store
+        const user = {
+          email: data.email
+        };
         this.$store.dispatch("setToken", data.token);
-        this.$store.dispatch("setUser", data.user);
+        this.$store.dispatch("setUser", user);
         // go to home
         this.$router.push("/");
       } catch (err) {

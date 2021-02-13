@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import store from "@/store/index";
 import Home from "@/views/Home";
 import Login from "@/views/Login";
+import Signup from "@/views/Signup";
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,23 @@ const routes = [
     meta: {
       guest: true
     }
+  },
+  {
+    path: "/signup",
+    name: "Signup",
+    component: Signup,
+    meta: {
+      guest: true
+    }
   }
+  // {
+  //   path: "/login",
+  //   name: "Login",
+  //   component: Login,
+  //   meta: {
+  //     guest: true
+  //   }
+  // }
 ];
 
 const router = new VueRouter({
