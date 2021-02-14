@@ -4,6 +4,7 @@ import store from "@/store/index";
 import Home from "@/views/Home";
 import Login from "@/views/Login";
 import Signup from "@/views/Signup";
+import Puzzles from "@/views/Puzzles";
 
 Vue.use(VueRouter);
 
@@ -31,15 +32,15 @@ const routes = [
     meta: {
       guest: true
     }
+  },
+  {
+    path: "/puzzles",
+    name: "Puzzles",
+    component: Puzzles,
+    meta: {
+      guest: false
+    }
   }
-  // {
-  //   path: "/login",
-  //   name: "Login",
-  //   component: Login,
-  //   meta: {
-  //     guest: true
-  //   }
-  // }
 ];
 
 const router = new VueRouter({
