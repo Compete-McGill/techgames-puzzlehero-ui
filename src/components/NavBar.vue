@@ -46,6 +46,7 @@
           router
           to="/teams"
           min-height="115%"
+          v-if="$store.state.isLoggedIn"
           class="offset-y primary--text"
           >teams</v-btn
         >

@@ -7,6 +7,10 @@ const mutations = {
 
   setToken(state, token) {
     state.token = token;
+  },
+
+  setTeam(state, team) {
+    state.team = team;
   }
 };
 
