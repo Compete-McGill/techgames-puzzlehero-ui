@@ -10,6 +10,7 @@ const state = {
   user: null,
   token: null,
   team: null,
+  snackbarInfo: null,
   isLoggedIn: false
 };
 

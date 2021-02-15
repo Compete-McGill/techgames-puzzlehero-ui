@@ -11,6 +11,10 @@ const mutations = {
 
   setTeam(state, team) {
     state.team = team;
+  },
+
+  setSnackbar(state, snackbarInfo) {
+    state.snackbarInfo = snackbarInfo;
   }
 };
 

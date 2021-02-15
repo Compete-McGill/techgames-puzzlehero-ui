@@ -112,27 +112,15 @@
             >
           </v-list-item>
 
-          <v-list-item to="/about">
+          <v-list-item v-if="$store.state.isLoggedIn" to="/puzzles">
             <v-list-item-title class="offset-y primary--text"
-              >ABOUT</v-list-item-title
+              >PUZZLES</v-list-item-title
             >
           </v-list-item>
 
-          <v-list-item v-if="$store.state.isLoggedIn" to="/dashboard">
+          <v-list-item v-if="$store.state.isLoggedIn" to="/teams">
             <v-list-item-title class="offset-y primary--text"
-              >DASHBOARD</v-list-item-title
-            >
-          </v-list-item>
-
-          <v-list-item v-if="$store.state.isLoggedIn" to="/problemsets">
-            <v-list-item-title class="offset-y primary--text"
-              >PROBLEM SETS</v-list-item-title
-            >
-          </v-list-item>
-
-          <v-list-item v-if="$store.state.isLoggedIn" to="/problems">
-            <v-list-item-title class="offset-y primary--text"
-              >PROBLEMS</v-list-item-title
+              >TEAMS</v-list-item-title
             >
           </v-list-item>
 
@@ -160,16 +148,7 @@ export default {
   data() {
     return {
       drawer: false,
-      profileDropdownItems: [
-        {
-          title: "profile",
-          link: "/profile"
-        },
-        {
-          title: "settings",
-          link: "/settings"
-        }
-      ]
+      profileDropdownItems: []
     };
   },
 
