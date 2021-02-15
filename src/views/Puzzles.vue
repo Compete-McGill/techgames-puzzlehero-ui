@@ -35,6 +35,7 @@ export default {
       const response2 = await puzzleHeroApi.get(
         `/teams/${this.$store.state.user.teamId}`
       );
+      this.$store.dispatch("setTeam", response2.data);
       this.teamPoints = response2.data.score;
       const teamsPuzzleList = response2.data.puzzles;
       for (let i = 0; i < teamsPuzzleList.length; i++) {
