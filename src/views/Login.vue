@@ -78,6 +78,16 @@ export default {
           email: this.user.email,
           password: this.user.password
         });
+
+        if (data.teamId) {
+          const team = await puzzleHeroApi.get(`/teams/${data.teamId}`, {
+            headers: {
+              "x-auth": data.token
+            }
+          });
+
+          this.$store.dispatch("setTeam", team.data);
+        }
         // save user and token in store
         const user = {
           email: data.email,
