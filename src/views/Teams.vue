@@ -44,7 +44,37 @@
       </div>
 
       <!-- user not in a team -->
-      <div v-else>Team exists</div>
+      <div v-else>
+        <v-row class="my-5 py-5">
+          <v-col cols="0" sm="3"></v-col>
+
+          <v-col cols="12" sm="6" class="my-5 py-5">
+            <h2 class="my-5 display-1 font-weight-light">Create a new team</h2>
+            <v-text-field
+              name="team name"
+              class="mb-3"
+              label="Team Name"
+              width="50%"
+              @keyup.enter="createTeam"
+              v-model="teamName"
+              prepend-icon="mdi-account"
+              required
+            ></v-text-field>
+
+            <div class="primary--text" v-html="error"></div>
+
+            <v-btn
+              text
+              :loading="loading"
+              @click="createTeam"
+              class="background mx-0 mt-3 primary--text text-uppercase"
+              >create</v-btn
+            >
+          </v-col>
+
+          <v-col cols="0" sm="3"></v-col>
+        </v-row>
+      </div>
     </v-container>
   </div>
 </template>
@@ -57,6 +87,7 @@ export default {
   data() {
     return {
       newUserEmail: "",
+      teamName: "",
       members: this.$store.state.team?.users,
       error: "",
       loading: false,
@@ -86,6 +117,46 @@ export default {
         );
 
         this.$store.dispatch("setTeam", data);
+        this.members = data.users;
+      } catch (err) {
+        this.error = err.response.data.message;
+      } finally {
+        this.loading = false;
+      }
+    },
+
+    async createTeam() {
+      try {
+        this.loading = true;
+        const team = await puzzleHeroApi.post(
+          "/teams",
+          {
+            name: this.teamName
+          },
+          {
+            headers: {
+              "x-auth": this.$store.state.token
+            }
+          }
+        );
+
+        const { data } = await puzzleHeroApi.post(
+          `/teams/${team.data._id}/addUser`,
+          {
+            email: this.$store.state.user.email
+          },
+          {
+            headers: {
+              "x-auth": this.$store.state.token
+            }
+          }
+        );
+
+        this.$store.dispatch("setTeam", data);
+        this.$store.dispatch("setUser", {
+          ...this.$store.state.user,
+          teamId: data._id
+        });
         this.members = data.users;
       } catch (err) {
         this.error = err.response.data.message;
