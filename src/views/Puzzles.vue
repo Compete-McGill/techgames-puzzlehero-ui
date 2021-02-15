@@ -3,11 +3,11 @@
     <h1>Puzzles!</h1>
     <h3>Team score: {{ teamPoints }}</h3>
     <!-- <p>User: {{ this.$store.state }}</p> -->
-    <ul>
+    <!-- <ul>
       <li v-for="puzzle in puzzleList" :key="puzzle.title">
         <p>{{ puzzle }}</p>
       </li>
-    </ul>
+    </ul> -->
     <PuzzleTable :puzzleList="puzzleList" :onSuccess="load" />
   </div>
 </template>

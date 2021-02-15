@@ -1,7 +1,11 @@
 <template>
   <div class="home">
     <h1>Home!</h1>
-    <p>User: {{ this.$store.state }}</p>
+    <p>
+      This is where some announcement info could go, or instructions on Tech
+      Games events
+    </p>
+    <!-- <p>User: {{ this.$store.state.snackbarInfo }}</p> -->
   </div>
 </template>
 

@@ -9,6 +9,10 @@ const actions = {
 
   setToken({ commit }, token) {
     commit("setToken", token);
+  },
+
+  setSnackbar({ commit }, snackbarInfo) {
+    commit("setSnackbar", snackbarInfo);
   }
 };
 
