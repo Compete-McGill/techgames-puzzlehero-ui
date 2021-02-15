@@ -28,7 +28,8 @@ import { puzzleHeroApi } from "@/api/puzzleHero";
 
 export default {
   props: {
-    puzzleList: Array
+    puzzleList: Array,
+    onSuccess: Function
   },
   data() {
     return {};
@@ -43,6 +44,9 @@ export default {
         }
       );
       console.log(response.data);
+      if (response.data.success == true) {
+        this.onSuccess();
+      }
     }
   }
 };

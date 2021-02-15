@@ -35,7 +35,7 @@
           router
           to="/puzzles"
           min-height="115%"
-          v-if="$store.state.isLoggedIn"
+          v-if="$store.state.isLoggedIn && $store.state.user.teamId"
           class="offset-y primary--text"
           >puzzles</v-btn
         >

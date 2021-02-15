@@ -1,13 +1,14 @@
 <template>
   <div class="puzzles">
     <h1>Puzzles!</h1>
-    <p>User: {{ this.$store.state }}</p>
+    <h3>Team score: {{ teamPoints }}</h3>
+    <!-- <p>User: {{ this.$store.state }}</p> -->
     <ul>
-      <li v-for="(puzzle, index) in puzzleList" :key="index">
+      <li v-for="puzzle in puzzleList" :key="puzzle.title">
         <p>{{ puzzle }}</p>
       </li>
     </ul>
-    <PuzzleTable :puzzleList="puzzleList" />
+    <PuzzleTable :puzzleList="puzzleList" :onSuccess="load" />
   </div>
 </template>
 
@@ -22,14 +23,33 @@ export default {
   },
   data() {
     return {
-      puzzleList: ["test1", "test2"]
+      teamPoints: 0,
+      puzzleList: []
     };
+  },
+  methods: {
+    load: async function() {
+      const response = await puzzleHeroApi.get("/puzzles");
+      this.puzzleList = [];
+      const tempList = response.data;
+      const response2 = await puzzleHeroApi.get(
+        `/teams/${this.$store.state.user.teamId}`
+      );
+      this.teamPoints = response2.data.score;
+      const teamsPuzzleList = response2.data.puzzles;
+      for (let i = 0; i < teamsPuzzleList.length; i++) {
+        if (teamsPuzzleList[i].completed == "UNLOCKED") {
+          const index = tempList.findIndex(
+            obj => obj._id == teamsPuzzleList[i].puzzleId
+          );
+          this.puzzleList.push(tempList[index]);
+        }
+      }
+    }
   },
   mounted: async function() {
     console.log("Puzzles mounted");
-    const response = await puzzleHeroApi.get("/puzzles");
-    console.log(response.data);
-    this.puzzleList = response.data;
+    await this.load();
   }
 };
 </script>

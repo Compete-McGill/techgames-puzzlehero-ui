@@ -80,7 +80,8 @@ export default {
         });
         // save user and token in store
         const user = {
-          email: data.email
+          email: data.email,
+          teamId: data.teamId
         };
         this.$store.dispatch("setToken", data.token);
         this.$store.dispatch("setUser", user);
