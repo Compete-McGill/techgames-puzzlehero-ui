@@ -33,11 +33,11 @@
           text
           tile
           router
-          to="/questions"
+          to="/puzzles"
           min-height="115%"
-          v-if="$store.state.isLoggedIn"
+          v-if="$store.state.isLoggedIn && $store.state.user.teamId"
           class="offset-y primary--text"
-          >questions</v-btn
+          >puzzles</v-btn
         >
 
         <v-btn
@@ -46,6 +46,7 @@
           router
           to="/teams"
           min-height="115%"
+          v-if="$store.state.isLoggedIn"
           class="offset-y primary--text"
           >teams</v-btn
         >

@@ -91,7 +91,11 @@ export default {
         });
 
         this.$store.dispatch("setToken", data.token);
-        this.$store.dispatch("setUser", data.user);
+        this.$store.dispatch("setUser", {
+          email: data.email,
+          teamId: null
+        });
+        this.$router.push("/");
       } catch (err) {
         this.error = err.response.data.message;
       } finally {
