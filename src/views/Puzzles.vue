@@ -1,7 +1,9 @@
 <template>
   <div class="puzzles">
     <h1>Puzzles!</h1>
-    <h3>Team score: {{ teamPoints }}</h3>
+    <br />
+    <h2>Team score: {{ teamPoints }}</h2>
+    <br />
     <!-- <p>User: {{ this.$store.state }}</p> -->
     <!-- <ul>
       <li v-for="puzzle in puzzleList" :key="puzzle.title">

@@ -44,11 +44,22 @@
           text
           tile
           router
+          to="/scores"
+          min-height="115%"
+          v-if="$store.state.isLoggedIn && $store.state.user.teamId"
+          class="offset-y primary--text"
+          >scores</v-btn
+        >
+
+        <v-btn
+          text
+          tile
+          router
           to="/teams"
           min-height="115%"
           v-if="$store.state.isLoggedIn"
           class="offset-y primary--text"
-          >teams</v-btn
+          >team</v-btn
         >
 
         <v-btn
@@ -118,9 +129,15 @@
             >
           </v-list-item>
 
+          <v-list-item to="/scores">
+            <v-list-item-title class="offset-y primary--text"
+              >SCORES</v-list-item-title
+            >
+          </v-list-item>
+
           <v-list-item v-if="$store.state.isLoggedIn" to="/teams">
             <v-list-item-title class="offset-y primary--text"
-              >TEAMS</v-list-item-title
+              >TEAM</v-list-item-title
             >
           </v-list-item>
 

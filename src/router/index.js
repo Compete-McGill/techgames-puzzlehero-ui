@@ -6,6 +6,7 @@ import Login from "@/views/Login";
 import Signup from "@/views/Signup";
 import Puzzles from "@/views/Puzzles";
 import Teams from "@/views/Teams";
+import Scores from "@/views/Scores";
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,14 @@ const routes = [
     component: Puzzles,
     meta: {
       guest: false
+    }
+  },
+  {
+    path: "/scores",
+    name: "Scores",
+    component: Scores,
+    meta: {
+      guest: true
     }
   },
   {

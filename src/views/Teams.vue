@@ -1,7 +1,7 @@
 <template>
   <div class="teams">
     <v-container class="my-5">
-      <h1 class="my-5 display-1 font-weight-light">Teams</h1>
+      <h1 class="my-5 display-1 font-weight-light">My Team</h1>
 
       <!-- user already in a team -->
       <div v-if="$store.state.user.teamId && $store.state.team">
@@ -126,9 +126,10 @@ export default {
     },
 
     async createTeam() {
+      let team = {};
       try {
         this.loading = true;
-        const team = await puzzleHeroApi.post(
+        team = await puzzleHeroApi.post(
           "/teams",
           {
             name: this.teamName
@@ -159,6 +160,11 @@ export default {
         });
         this.members = data.users;
       } catch (err) {
+        this.$store.dispatch("setSnackbar", {
+          showSnackbar: true,
+          msg: `Failure creating team (team name might be already taken):\n ${err}`,
+          color: "red"
+        });
         this.error = err.response.data.message;
       } finally {
         this.loading = false;
