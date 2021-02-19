@@ -108,7 +108,7 @@
             </v-card-text> </v-col
           ><v-col>
             <v-card-subtitle class="text-h6 font-weight-bold"
-              >Backend Challenge</v-card-subtitle
+              >Stack Overflow</v-card-subtitle
             >
             <v-card-text>
               <p class="font-weight-bold">1 Participant</p>
