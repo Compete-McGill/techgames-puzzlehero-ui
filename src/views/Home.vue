@@ -22,7 +22,7 @@
         </v-row>
 
         <v-row>
-          <v-card-title>HOW TO GET STARTED</v-card-title>
+          <v-card-title>How to get started</v-card-title>
           <v-card-text>
             1. Make an account by registering with your <b>McGill email</b>.
             (Use the register button in the top right.)
@@ -120,6 +120,99 @@
               </p>
             </v-card-text>
           </v-col>
+        </v-row>
+        <v-row>
+          <v-card-title>Challenge Scoring</v-card-title>
+        </v-row>
+        <v-row>
+          <ul>
+            <li>Long events (Backend and Mobile) are worth 150 points</li>
+            <li>
+              Short events (Functional, Xtreme Theory, Stack Overflow) are worth
+              75 points
+            </li>
+            <ul>
+              <li>
+                Points are relative to placement in the event. 1st = 100% of
+                points 2nd = 95% of points, 3rd = 90% of points …
+              </li>
+              <li>
+                In the event of a tie, both teams are awarded equal points. Ex:
+                3 teams tied for 4th each get 85% of points and the next team
+                would get 5th place with 80% of points.
+              </li>
+            </ul>
+            <li>
+              Puzzle Hero is worth 1 point a question regardless of placement.
+            </li>
+          </ul>
+        </v-row>
+        <v-row>
+          <v-card-title>Venue Map</v-card-title>
+        </v-row>
+        <v-row>
+          <v-img contain height="450px" src="@/assets/map.png"> </v-img>
+        </v-row>
+        <v-row><v-card-title>Puzzle Hero</v-card-title></v-row>
+        <v-row>
+          <ul>
+            <li>
+              Throughout the day while you are competing in challenges this
+              website can be used to access puzzle hero! Answer the trivia
+              questions correctly to get points that will help out your team.
+              Here’s how puzzle hero works
+            </li>
+            <li>
+              Answering a question correctly will unlock the next question in
+              that category for your entire team Answers are not case sensitive.
+            </li>
+            <li>
+              You have unlimited tries for each question so try anything and
+              everything if you're stuck.
+            </li>
+            <li>There is only one right answer for each question.</li>
+          </ul>
+        </v-row>
+
+        <v-row>
+          <v-card-title>Sponsors</v-card-title>
+          <v-card-text>A special thanks to our sponsors:</v-card-text>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-img contain max-width="400px" src="@/assets/google.png"></v-img>
+          </v-col>
+          <v-col>
+            <v-img contain max-width="400px" src="@/assets/xebec.png"></v-img>
+          </v-col>
+          <v-col>
+            <v-img
+              contain
+              max-width="400px"
+              src="@/assets/tangerine.png"
+            ></v-img>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-card-title>Rules and Expectations</v-card-title>
+        </v-row>
+        <v-row>
+          <ol>
+            <li>Please login to GatherTown with your first and last name</li>
+            <li>Please be respectful to others</li>
+            <li>
+              Private spaces in the main hall are meeting places for teams. Try
+              to stay in your own team’s space.
+            </li>
+            <li>
+              No cheating or opening of other people's documents during
+              competitions
+            </li>
+            <li>
+              No profanity or inappropriate language (in chat or in
+              team/usernames)
+            </li>
+          </ol>
         </v-row>
       </v-container>
     </v-card>
