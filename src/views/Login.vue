@@ -90,6 +90,7 @@ export default {
         }
         // save user and token in store
         const user = {
+          ...data.user,
           email: data.email,
           teamId: data.teamId
         };

@@ -90,8 +90,12 @@ export default {
           password: this.user.password
         });
 
+        console.log("Login response");
+        console.log(data);
+
         this.$store.dispatch("setToken", data.token);
         this.$store.dispatch("setUser", {
+          ...data.user,
           email: data.email,
           teamId: null
         });

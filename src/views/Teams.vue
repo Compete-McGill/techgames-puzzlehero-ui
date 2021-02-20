@@ -100,6 +100,29 @@ export default {
     };
   },
 
+  async mounted() {
+    if (this.$store.state.user) {
+      const userResponse = await puzzleHeroApi.get(
+        `/users/${this.$store.state.user._id}`
+      );
+      this.$store.dispatch("setUser", {
+        ...userResponse.data,
+        teamId: userResponse.data.teamId
+      });
+
+      if (this.$store.state.user.teamId) {
+        const response = await puzzleHeroApi.get(
+          `/teams/${this.$store.state.user.teamId}`
+        );
+
+        this.$store.dispatch("setTeam", {
+          ...response.data,
+          teamId: response.data.teamId
+        });
+      }
+    }
+  },
+
   methods: {
     async addUser() {
       try {
