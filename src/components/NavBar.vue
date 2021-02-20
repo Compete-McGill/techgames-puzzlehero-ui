@@ -7,8 +7,6 @@
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-btn icon router to="/" color="white" class="ml-3">
-        <!--  TODO: Logo -->
-        LOGO
         <v-icon x-large>$vuetify.icons.cp-logo</v-icon>
       </v-btn>
 
